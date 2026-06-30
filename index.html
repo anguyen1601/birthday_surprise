@@ -418,12 +418,17 @@ function updateNav(){
   document.getElementById('dot-0').className='nav-dot on';
   document.getElementById('dot-1').className='nav-dot';
   document.getElementById('dot-2').style.display='none';
-  document.getElementById('btn-back').disabled=(currentPage<=2);
+  document.getElementById('btn-back').disabled=false;
   document.getElementById('btn-fwd').disabled=(currentPage>=3);
 }
 function navBack(){
-  if(currentPage===3){
-    // go back to cake — reset envelope state
+  if(currentPage===2){
+    showPage(1);
+    const vid=document.getElementById('bday-video');
+    vid.currentTime=0;
+    vid.play().catch(()=>{});
+    vid.onended=goToCake;
+  } else if(currentPage===3){
     closeLetter(true);
     showPage(2);
   }
