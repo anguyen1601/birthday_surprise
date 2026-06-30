@@ -412,18 +412,15 @@ function showPage(idx){
 // ── NAV DOTS & ARROWS ────────────────────────────────────────
 // Nav only shown on pages 2 (cake) and 3 (letter); pages: cake=0, letter=1 in the dot view
 function updateNav(){
-  const showNav=(currentPage===2||currentPage===3);
+  const showNav=(currentPage===2);
   document.getElementById('nav-arrows').classList.toggle('show',showNav);
   if(!showNav)return;
-  // dots: 0=cake, 1=letter (we only have 2 navigable pages)
-  const pos=currentPage-2; // 0 or 1
-  document.getElementById('dot-0').className='nav-dot'+(pos===0?' on':'');
-  document.getElementById('dot-1').className='nav-dot'+(pos===1?' on':'');
-  document.getElementById('dot-2').style.display='none'; // hide 3rd dot
+  document.getElementById('dot-0').className='nav-dot on';
+  document.getElementById('dot-1').className='nav-dot';
+  document.getElementById('dot-2').style.display='none';
   document.getElementById('btn-back').disabled=(currentPage<=2);
   document.getElementById('btn-fwd').disabled=(currentPage>=3);
 }
-
 function navBack(){
   if(currentPage===3){
     // go back to cake — reset envelope state
