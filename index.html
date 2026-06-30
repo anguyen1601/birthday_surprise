@@ -421,6 +421,7 @@ function updateNav(){
   document.getElementById('btn-back').disabled=false;
   document.getElementById('btn-fwd').disabled=(currentPage>=3);
 }
+
 function navBack(){
   if(currentPage===2){
     showPage(1);
@@ -433,6 +434,7 @@ function navBack(){
     showPage(2);
   }
 }
+
 function navForward(){
   if(currentPage===2) goToLetter();
 }
