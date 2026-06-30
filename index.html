@@ -605,7 +605,7 @@ function blowCandles(){
       const sm=setInterval(()=>{sc+=.15;op-=.06;smoke.setAttribute('rx',5*sc);smoke.setAttribute('ry',5*sc);smoke.setAttribute('opacity',op);smoke.setAttribute('cy',54-sc*4);if(op<=0){clearInterval(sm);smoke.remove();}},50);
     },i*80);
   }
-  document.getElementById('cake-instruction').style.opacity='0';
+    document.getElementById('cake-instruction').style.display='none';
   setTimeout(()=>{
     document.getElementById('wish-msg').classList.add('show');
     setTimeout(()=>{
