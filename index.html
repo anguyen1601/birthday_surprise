@@ -22,7 +22,8 @@ const CONFIG = {
 
   // ── MUSIC ────────────────────────────────────────────────────
   // Plays on every page EXCEPT the video page. Use a filename or URL.
-  MUSIC_SRC:    "Happy Birthday Instrumental  Elegant Piano Harp Version (Calm & Soothing) - YouTube.mp3",               // ← CHANGE
+  MUSIC_SRC:    "Happy Birthday Instrumental  Elegant Piano Harp Version (Calm & Soothing) - YouTube.mp3", 
+  HBD_VOICES_SRC: "happy_birthday_voices.mp3",   // ← file âm thanh nhiều người chúc, bạn upload              // ← CHANGE
   MUSIC_VOLUME: 0.5,                                // 0.0 – 1.0
 
   // ── NOTIFICATION (fires N seconds after cake page loads) ─────
@@ -208,6 +209,7 @@ body{font-family:'Inter',sans-serif;background:#0a0010;color:#fff}
   <input id="music-vol" type="range" min="0" max="1" step="0.05" value="0.5" title="Volume">
 </div>
 <audio id="bg-music" loop></audio>
+<audio id="hbd-voices"></audio>
 
 <!-- Notification toast -->
 <div id="notif-toast">
@@ -398,6 +400,21 @@ function startMusic(){
 }
 function pauseMusic(){bgMusic.pause();}
 
+function playNotifSound(){
+  try{
+    const ctx=new (window.AudioContext||window.webkitAudioContext)();
+    const o=ctx.createOscillator();
+    const g=ctx.createGain();
+    o.connect(g);g.connect(ctx.destination);
+    o.type='sine';
+    o.frequency.setValueAtTime(880,ctx.currentTime);
+    o.frequency.exponentialRampToValueAtTime(1320,ctx.currentTime+0.1);
+    g.gain.setValueAtTime(0.25,ctx.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+0.4);
+    o.start();o.stop(ctx.currentTime+0.4);
+  }catch(e){}
+}
+
 // ── PAGE TRANSITIONS ─────────────────────────────────────────
 function showPage(idx){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
@@ -502,7 +519,7 @@ function scheduleNotification(delaySec){
   notifTimer=setTimeout(()=>{
     document.getElementById('notif-toast').classList.add('show');
     // auto-dismiss after 12s if not acted on
-    setTimeout(()=>document.getElementById('notif-toast').classList.remove('show'),12000);
+    // setTimeout(()=>document.getElementById('notif-toast').classList.remove('show'),12000);
   }, ms);
 }
 
@@ -567,6 +584,13 @@ function blowCandles(){
   if(!candlesLit)return;
   candlesLit=false;
   scheduleNotification(10);
+
+  const voices=document.getElementById('hbd-voices');
+  voices.src=CONFIG.HBD_VOICES_SRC;
+  voices.volume=0.8;
+  voices.play().catch(()=>{});
+
+
   const count=Math.min(CONFIG.CANDLE_COUNT,2);
   const tierLeft=125, tierRight=215, spacing=(tierRight-tierLeft)/(count+1);
   for(let i=0;i<count;i++){
