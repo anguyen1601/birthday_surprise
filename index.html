@@ -412,14 +412,15 @@ function showPage(idx){
 // ── NAV DOTS & ARROWS ────────────────────────────────────────
 // Nav only shown on pages 2 (cake) and 3 (letter); pages: cake=0, letter=1 in the dot view
 function updateNav(){
-  const showNav=(currentPage===2);
+  const showNav=(currentPage===2||currentPage===3);
   document.getElementById('nav-arrows').classList.toggle('show',showNav);
   if(!showNav)return;
-  document.getElementById('dot-0').className='nav-dot on';
-  document.getElementById('dot-1').className='nav-dot';
+  document.getElementById('dot-0').className='nav-dot'+(currentPage===2?' on':'');
+  document.getElementById('dot-1').className='nav-dot'+(currentPage===3?' on':'');
   document.getElementById('dot-2').style.display='none';
   document.getElementById('btn-back').disabled=false;
-  document.getElementById('btn-fwd').disabled=(currentPage>=3);
+  // Forward is only enabled on cake page once candles have been blown
+  document.getElementById('btn-fwd').disabled = (currentPage===2 && candlesLit) || currentPage===3;
 }
 
 function navBack(){
@@ -436,7 +437,7 @@ function navBack(){
 }
 
 function navForward(){
-  if(currentPage===2) goToLetter();
+  if(currentPage===2 && !candlesLit) goToLetter();
 }
 
 // ── INIT ─────────────────────────────────────────────────────
