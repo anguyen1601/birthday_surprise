@@ -534,11 +534,11 @@ let candlesLit=true;
 function buildCandles(){
   const g=document.getElementById('candles-group');g.innerHTML='';
   const count=Math.min(CONFIG.CANDLE_COUNT, 4);
-  const totalW=240,startX=60;
-  const spacing=totalW/(count+1);
+  const tierLeft=125, tierRight=215, tierWidth=tierRight-tierLeft;
+  const spacing=tierWidth/(count+1);
   const colors=['#f472b6','#c084fc','#fb923c','#fbbf24','#6ee7b7','#60a5fa'];
   for(let i=0;i<count;i++){
-    const cx=startX+spacing*(i+1),cy=85,col=colors[i%colors.length];
+    const cx=tierLeft+spacing*(i+1),cy=81,col=colors[i%colors.length];
     const rect=document.createElementNS('http://www.w3.org/2000/svg','rect');
     rect.setAttribute('x',cx-4);rect.setAttribute('y',cy-20);rect.setAttribute('width','8');rect.setAttribute('height','20');rect.setAttribute('rx','2');rect.setAttribute('fill',col);
     g.appendChild(rect);
@@ -563,16 +563,17 @@ function blowCandles(){
   candlesLit=false;
   scheduleNotification(10);
   const count=Math.min(CONFIG.CANDLE_COUNT,4);
+  const tierLeft=125, tierRight=215, spacing=(tierRight-tierLeft)/(count+1);
   for(let i=0;i<count;i++){
     setTimeout(()=>{
       const flame=document.getElementById(`flame${i}`);
       if(flame){flame.style.transition='opacity .3s';flame.style.opacity='0';setTimeout(()=>flame.remove(),400);}
-      const spacing=240/(count+1),cx=60+spacing*(i+1);
+      const cx=tierLeft+spacing*(i+1);
       const smoke=document.createElementNS('http://www.w3.org/2000/svg','ellipse');
-      smoke.setAttribute('cx',cx);smoke.setAttribute('cy','58');smoke.setAttribute('rx','5');smoke.setAttribute('ry','5');smoke.setAttribute('fill','rgba(200,200,200,.4)');
+      smoke.setAttribute('cx',cx);smoke.setAttribute('cy','54');smoke.setAttribute('rx','5');smoke.setAttribute('ry','5');smoke.setAttribute('fill','rgba(200,200,200,.4)');
       document.getElementById('candles-group').appendChild(smoke);
       let sc=1,op=.5;
-      const sm=setInterval(()=>{sc+=.15;op-=.06;smoke.setAttribute('rx',5*sc);smoke.setAttribute('ry',5*sc);smoke.setAttribute('opacity',op);smoke.setAttribute('cy',58-sc*4);if(op<=0){clearInterval(sm);smoke.remove();}},50);
+      const sm=setInterval(()=>{sc+=.15;op-=.06;smoke.setAttribute('rx',5*sc);smoke.setAttribute('ry',5*sc);smoke.setAttribute('opacity',op);smoke.setAttribute('cy',54-sc*4);if(op<=0){clearInterval(sm);smoke.remove();}},50);
     },i*80);
   }
   document.getElementById('cake-instruction').style.opacity='0';
