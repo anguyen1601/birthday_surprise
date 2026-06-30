@@ -30,7 +30,7 @@ const CONFIG = {
   NOTIFICATION_TEXT: "You have a message 💌",       // ← CHANGE
 
   // ── CAKE (Page 3) ────────────────────────────────────────────
-  CANDLE_COUNT:  7,                                // ← CHANGE
+  CANDLE_COUNT:  4,                                // ← CHANGE
   WISH_MESSAGE:  "Make a wish, Thi! ✨",           // ← CHANGE
   FINAL_MESSAGE: "May all your dreams come true this year 🎂💕", // ← CHANGE
 
@@ -562,7 +562,7 @@ function blowCandles(){
   if(!candlesLit)return;
   candlesLit=false;
   scheduleNotification(10);
-  const count=Math.min(CONFIG.CANDLE_COUNT,16);
+  const count=Math.min(CONFIG.CANDLE_COUNT,4);
   for(let i=0;i<count;i++){
     setTimeout(()=>{
       const flame=document.getElementById(`flame${i}`);
