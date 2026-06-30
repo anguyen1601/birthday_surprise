@@ -533,7 +533,7 @@ let candlesLit=true;
 
 function buildCandles(){
   const g=document.getElementById('candles-group');g.innerHTML='';
-  const count=Math.min(CONFIG.CANDLE_COUNT, 4);
+  const count=Math.min(CONFIG.CANDLE_COUNT, 2);
   const tierLeft=125, tierRight=215, tierWidth=tierRight-tierLeft;
   const spacing=tierWidth/(count+1);
   const colors=['#f472b6','#c084fc','#fb923c','#fbbf24','#6ee7b7','#60a5fa'];
@@ -562,7 +562,7 @@ function blowCandles(){
   if(!candlesLit)return;
   candlesLit=false;
   scheduleNotification(10);
-  const count=Math.min(CONFIG.CANDLE_COUNT,4);
+  const count=Math.min(CONFIG.CANDLE_COUNT,2);
   const tierLeft=125, tierRight=215, spacing=(tierRight-tierLeft)/(count+1);
   for(let i=0;i<count;i++){
     setTimeout(()=>{
