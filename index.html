@@ -31,20 +31,20 @@ const CONFIG = {
 
   // ── CAKE (Page 3) ────────────────────────────────────────────
   CANDLE_COUNT:  4,                                // ← CHANGE
-  WISH_MESSAGE:  "Make a wish, Thi! ✨",           // ← CHANGE
+  // WISH_MESSAGE:  "Make a wish, Thi! ✨",           // ← CHANGE
   FINAL_MESSAGE: "May all your dreams come true this year 🎂💕", // ← CHANGE
 
   // ── LETTER (Page 4) ─────────────────────────────────────────
   LETTER_HEADING: "To my love Thi,",           // ← CHANGE
   LETTER_BODY: `Chúc mừng sinh nhật em 🎉
 
-Trước hết anh muốn rất vui khi được biết em. Giữa 8 tỷ người ngoài kia, anh cảm thấy mình thật may mắn khi được gặp em. Mặc dù chúng ta chỉ mới biết nhau gần đây nhưng anh cảm thấy như mình đã biết nhau từ rất lâu rồi.
+Trước hết, anh rất vui vì được biết em. Giữa 8 tỷ người ngoài kia, anh cảm thấy mình thật may mắn khi có cơ hội gặp em. Dù chúng ta chỉ mới quen nhau gần đây, nhưng anh lại có cảm giác như mình đã biết em từ rất lâu rồi.
 
-Trong giờ phút này, anh muốn nói gửi đến em một lời chúc sinh nhật thật vui vẻ. Anh chúc em luôn xinh đẹp, luôn vui vẻ, luôn hạnh phúc bên gia đình và những người thân yêu. Anh biết rằng đoạn đường phía trước sẽ còn nhiều khó khăn nhưng anh tin rằng em sẽ vượt qua tất cả.
+Nhân dịp đặc biệt này, anh muốn gửi đến em những lời chúc sinh nhật chân thành nhất. Anh chúc em luôn xinh đẹp, luôn vui vẻ và hạnh phúc bên gia đình cũng như những người em yêu thương. Anh biết chặng đường phía trước sẽ còn có những thử thách, nhưng anh tin em sẽ luôn mạnh mẽ và vượt qua tất cả. Chỉ cần em luôn mỉm cười và là chính mình, như vậy đã là điều rất tuyệt rồi.
 
-Anh mong là em sẽ thích món quà này mà anh đã chuẩn bị cho em. Anh mong rằng chú mèo bông sẽ là người bạn đồng hành cùng em trong những giấc ngủ hoặc những lúc cô đơn. Anh cũng mong rằng sợi dây chuyền mà anh tặng sẽ là một món quà kỷ niệm để em luôn nhớ đến anh và sinh nhật năm 2026 này.
+Anh mong rằng em sẽ thích những món quà mà anh đã chuẩn bị. Hãy để bạn mèo bông là người bạn đồng hành trong những giấc ngủ ngon hay những lúc em cần một chút ấm áp. Còn sợi dây chuyền, anh mong nó sẽ là một món quà kỷ niệm nho nhỏ để mỗi khi nhìn thấy, em sẽ mỉm cười và nhớ về anh cùng sinh nhật năm 2026 này.
 
-Mong rằng dịp sinh nhật này em sẽ mở lòng để anh được làm người đồng hành cùng em trong những thời gian tới. Anh biết mình nói ra điều này có vẻ hơi sớm nhưng anh muốn em biết rằng anh thật sự nghiêm túc với những gì mình nói. Vậy nên mong em sẽ cho anh có cơ hội được là bờ vai để em tựa vào, là người để em chia sẻ những vui buồn trong cuộc sống. 
+Anh hy vọng sinh nhật này sẽ là một dịp để em cho anh cơ hội được đồng hành cùng em nhiều hơn trong khoảng thời gian sắp tới. Anh biết có thể điều này hơi sớm, nhưng anh chỉ muốn em biết rằng anh thật sự nghiêm túc với những gì mình dành cho em. Mong rằng em không cảm thấy áp lực hay khó chịu vì điều này. Ước rằng em sẽ cho anh một cơ hội để được ở bên, hiểu em, quan tâm em và trở thành một điểm tựa nhỏ trong cuộc sống của em. Mình hãy cùng nhau tạo nên thật nhiều kỷ niệm đẹp em nhé.
 
 With all my love,`,          
                        // ← CHANGE
@@ -282,7 +282,7 @@ body{font-family:'Inter',sans-serif;background:#0a0010;color:#fff}
       <circle cx="202" cy="154" r="6" fill="#6ee7b7"/>
       <g id="candles-group"></g>
     </svg>
-    <p class="cake-instruction" id="cake-instruction">Tap the cake to blow out the candles 🎂</p>
+    <p class="cake-instruction" id="cake-instruction"> ✨ Make a wish, Thi ✨ <br> Then tap the cake to blow out the candles 🎂</p>
     <p class="wish-msg"  id="wish-msg"></p>
     <p class="final-msg" id="final-msg"></p>
   </div>
