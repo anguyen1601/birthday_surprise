@@ -512,19 +512,18 @@ function openEnvelope(){
   const scene=document.getElementById('env-scene');
   const overlay=document.getElementById('letter-overlay');
   scene.style.opacity='0';scene.style.pointerEvents='none';
+  document.getElementById('nav-arrows').classList.remove('show');
   setTimeout(()=>{scene.style.display='none';overlay.classList.add('open');document.getElementById('letter-nav-bar').classList.add('show');},500);
 }
 
 function closeLetter(silent){
   document.getElementById('letter-nav-bar').classList.remove('show');
-  // Reset envelope for revisit
   const scene=document.getElementById('env-scene');
   const overlay=document.getElementById('letter-overlay');
   overlay.classList.remove('open');
   scene.style.display='';scene.style.opacity='1';scene.style.pointerEvents='';
   if(!silent) showPage(2);
 }
-
 // ── CAKE & CANDLES ────────────────────────────────────────────
 let candlesLit=true;
 
