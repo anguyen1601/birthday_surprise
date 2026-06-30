@@ -33,7 +33,7 @@ const CONFIG = {
   // ── CAKE (Page 3) ────────────────────────────────────────────
   CANDLE_COUNT:  4,                                // ← CHANGE
   // WISH_MESSAGE:  "Make a wish, Thi! ✨",           // ← CHANGE
-  FINAL_MESSAGE: "May all your dreams come true this year 🎂💕", // ← CHANGE
+  FINAL_MESSAGE: "💕 May all your dreams come true 💕", // ← CHANGE
 
   // ── LETTER (Page 4) ─────────────────────────────────────────
   LETTER_HEADING: "To my love Thi,",           // ← CHANGE
@@ -409,7 +409,7 @@ function playNotifSound(){
     o.type='sine';
     o.frequency.setValueAtTime(880,ctx.currentTime);
     o.frequency.exponentialRampToValueAtTime(1320,ctx.currentTime+0.1);
-    g.gain.setValueAtTime(0.25,ctx.currentTime);
+    g.gain.setValueAtTime(0.5,ctx.currentTime);
     g.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+0.4);
     o.start();o.stop(ctx.currentTime+0.4);
   }catch(e){}
