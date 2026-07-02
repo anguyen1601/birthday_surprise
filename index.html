@@ -14,7 +14,6 @@ const CONFIG = {
   // ── LOGIN ────────────────────────────────────────────────────
   PASSWORD:       "03072003",                   // ← CHANGE
   PASSWORD_HINT:  "💛 My Special's DOB 💛",      // ← or ""
-  NOTICE: "Please use Tablet for better experience 💕", // ← or "" (optional)
   RECIPIENT_NAME: "Thi",                          // ← CHANGE
 
   // ── VIDEO (Page 2) ───────────────────────────────────────────
@@ -331,7 +330,7 @@ body{font-family:'Inter',sans-serif;background:#0a0010;color:#fff}
   <!-- Fixed bottom bar -->
   <div class="letter-nav-bar" id="letter-nav-bar">
     <button class="letter-back-btn" onclick="goToCake()">← Back to cake</button>
-    <button class="letter-done-btn" onclick="closeLetter()">Happy Thi's Day 💕</button>
+    <button class="letter-done-btn" onclick="closeLetter()">💕 Happy Thi's Day 💕</button>
   </div>
 </div>
 
@@ -463,7 +462,6 @@ function navForward(){
 window.addEventListener('DOMContentLoaded',()=>{
   document.getElementById('login-title').textContent=`A surprise for ${CONFIG.RECIPIENT_NAME} 🎁`;
   document.getElementById('pw-hint').textContent=CONFIG.PASSWORD_HINT;
-  document.getElementById('notice').textContent=CONFIG.NOTICE;
   document.getElementById('video-src').src=CONFIG.VIDEO_SRC;
   document.getElementById('cake-title').textContent=`Happy ${CONFIG.RECIPIENT_NAME}'s Day! 🎂`;
   document.getElementById('wish-msg').textContent=CONFIG.WISH_MESSAGE;
